@@ -25,7 +25,7 @@ SECRET_KEY = '+^yn*@skuz=x1h2cct(v3ddxoo#8ftl1jf=md^0xsvpnd+(l#i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'rustam.superproject.com', 'superapi.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'rustam.superproject.com', 'superapi.pythonanywhere.com' ]
 
 
 # Application definition
