@@ -9,9 +9,14 @@ from django.views.decorators.csrf import csrf_exempt
 def post_list(request):
     context_instance = RequestContext(request)
     if request.method == "POST":
+        print(request.POST['id_device'])
+        print(request.POST['token'])
+        print(request.POST['window_id'])
+        print(request.POST['view_id'])
+        print(request.POST['rate'])
 
-        if 'id_device' in request.POST and 'token' in request.POST and \
-                'window_id' in request.POST and 'view_id' in request.POST and 'rate' in request.POST :
+
+        if 'id_device' in request.POST and 'token' in request.POST and  'window_id' in request.POST and 'view_id' in request.POST and 'rate' in request.POST :
             id_device = request.POST['id_device']
             token = request.POST['token']
             window_id = request.POST['window_id']
