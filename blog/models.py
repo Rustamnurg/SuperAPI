@@ -20,11 +20,11 @@ class Report(models.Model):
 #         return self.title
 #
 #
-# class User(models.Model):
-#     fistName = models.CharField(max_length=32)
-#     lastName = models.CharField(max_length=32)
-#     user_id = models.BigIntegerField()
-#     bio = models.TextField()
+class User(models.Model):
+    fistName = models.CharField(max_length=32)
+    lastName = models.CharField(max_length=32)
+    user_id = models.BigIntegerField()
+    bio = models.TextField()
 #
 #
 # class App(models.Model):
