@@ -4,9 +4,8 @@ import datetime
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
-from models import  App
-from models import Report
-from models import User
+from blog.models import *
+
 
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
