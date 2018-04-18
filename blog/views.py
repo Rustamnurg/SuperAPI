@@ -1,37 +1,56 @@
-import json
+import cgi
 
-from django.shortcuts import render
+from django.http import HttpResponse
+import datetime
 
-# Create your views here.
+# from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+from django.shortcuts import render, render_to_response
 from django.template import RequestContext
-from django.views.decorators.csrf import csrf_exempt
+
+from django.views.decorators.http import require_http_methods
+
+from blog.models import User, Report
 
 
-@csrf_exempt
-def post_list(request):
-    context_instance = RequestContext(request)
-    if request.method == "POST":
-
-        body_unicode = request.body.decode('UTF-8')
-        body_data = json.loads(body_unicode)
-
-        if 'device_id' in body_data and 'window_id' in body_data and  'message' in body_data and 'view_name' in body_data and 'heatmap_base64' in body_data and 'base_rate' in body_data and 'api_key' in body_data and 'views_blocks' in body_data:
-            device_id = body_data['device_id']
-            window_id = body_data['window_id']
-            message = body_data['message']
-            view_name = body_data['view_name']
-            heatmap_base64 = body_data['heatmap_base64']
-            base_rate = body_data['base_rate']
-            api_key = body_data['api_key']
-            views_blocks  = body_data['views_blocks']
+@require_http_methods(["GET"])
+def current_datetime(request):
 
 
-            print(views_blocks)
 
-            return render(request, 'blog/post.html', {})
-        else :
-          return render(request, 'blog/error.html', {})
+    reports = Report.objects.all()[0]
+    # print(reports.first().base_rate)
+    # RequestContext(request, {'book': book.objects.all()[0]})
 
+    # return render('main.html', {'reports': reports})
+    return render_to_response('main.html', RequestContext(request, {'reports': Report.objects.all()[0]}))
+
+
+@require_http_methods(["GET"])
+def signIn(request):
+
+
+    email = request.GET['email']
+    password = request.GET['password']
+
+
+    users = User.objects.filter(email = email, password = password)
+    if users.first() is not None:
+        print("User is valid, active and authenticated")
+        return HttpResponse("User is valid, active and authenticated")
     else:
-        return render(request, 'blog/get.html', {})
+        print("The username and password were incorrect.")
+        return HttpResponse("The username and password were incorrect")
+    return HttpResponse("")
+
+
+@require_http_methods(["GET"])
+def signUp(request):
+    # return HttpResponse(rem)
+    return render(request, 'blog/logIn.html', {})
+
+@require_http_methods(["GET"])
+def logout(request):
+    return HttpResponse("logout")
+
 
