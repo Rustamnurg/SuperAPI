@@ -47,9 +47,8 @@ def report(request):
 
 
                 img_data = heatmap_base64
-                with open("blog/images/{0}.png".format(image_name), "wb") as fh:
-                    # fh.write(img_data.decode('base64'))
-                    print()
+                with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
+                    fh.write(img_data.decode('base64'))
 
                 newReport.save()
                 print(views_blocks)
