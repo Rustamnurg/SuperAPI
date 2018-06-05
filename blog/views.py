@@ -1,6 +1,5 @@
 import uuid
 from django.http import HttpResponse
-import requests
 from django.shortcuts import render, render_to_response, redirect
 from django.template import RequestContext, loader
 from django.views.decorators.csrf import csrf_protect
