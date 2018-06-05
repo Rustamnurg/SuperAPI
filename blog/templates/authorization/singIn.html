@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Обработка данных форм</title>
+</head>
+<body>
+    <form action="/signIn/" method="post">
+        {% csrf_token %}
+        email
+        <input type="email" name="email">
+        password
+        <input type="password" name="password">
+        <input type="submit">
+    </form>
+</body>
+</html>

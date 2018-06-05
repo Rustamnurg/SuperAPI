@@ -5,9 +5,11 @@
 <title>Обработка данных форм</title>
 </head>
 <body>
-    <form action="/signIn">
-        <input type="email" name="email">
-        <input type="password" name="password">
+
+    <form action="/enterAppName/" method="post">
+        {% csrf_token %}
+        Enter app name
+        <input type="name" name="appName">
         <input type="submit">
     </form>
 </body>

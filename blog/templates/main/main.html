@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+
+<div>
+{% for report in reports %}
+<ul>
+  <li>{{ report.app.app_name}}</li>
+  <li>{{ report.base_rate }}</li>
+    <li>{{ report.created_date }}</li>
+</ul>
+{% endfor %}
+</div>
+
+
+</body>
+</html>
