@@ -10,8 +10,11 @@
 {% for report in reports %}
 <ul>
   <li>{{ report.app.app_name}}</li>
-  <li>{{ report.base_rate }}</li>
-    <li>{{ report.created_date }}</li>
+     <li>{{ report.base_rate }}</li>
+     <li>{{ report.message }}</li>
+    <li>{{ report.uudid}}</li>
+  <li>{{ report.windows_id}}</li>
+    <li>{{report.created_date }}</li>
 </ul>
 {% endfor %}
 </div>

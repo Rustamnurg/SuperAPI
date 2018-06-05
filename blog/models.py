@@ -23,8 +23,7 @@ class Report(models.Model):
     view_name = models.CharField(max_length=200)
     base_rate = models.IntegerField()
     uudid = models.CharField(max_length=200)
-    # heatmap_base64
-    # app_id
+    image_name = models.CharField(max_length=600)
     created_date = models.DateTimeField(
             default=timezone.now)
 

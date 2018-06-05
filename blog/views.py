@@ -5,8 +5,8 @@ from django.template import RequestContext, loader
 from django.views.decorators.csrf import csrf_protect
 
 from django.views.decorators.http import require_http_methods
-
 from blog.models import *
+
 
 
 @require_http_methods(["GET"])
