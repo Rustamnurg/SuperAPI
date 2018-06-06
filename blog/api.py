@@ -58,11 +58,11 @@ def report(request):
                     os.makedirs("/home/superapi/SuperAPI/blog/images/")
 
                 with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
-                    imageString  = img_data[img_data.find(",")+1:]
-                    decodedImage = imageString.decode('base64')
+                    # imageString  = img_data[img_data.find(",")+1:]
+                    decodedImage =  base64.b64decode(img_data)
                     fh.write(decodedImage)
 
-
+    
 
                 for idx, val in enumerate(views_blocks):
                     newView = View.objects.create(report = newReport, type = val['type'], view_id = val['view_id'], coordinates_by_x = 0, coordinates_by_y = 12, message = val['message'], rate = val['rate'])
