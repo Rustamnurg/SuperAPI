@@ -41,7 +41,7 @@ class View(models.Model):
 
 class ReportsWithAverageRate():
     reports = []
-    averageRate = int
+    averageRate = float
     rateCount = int
 
 

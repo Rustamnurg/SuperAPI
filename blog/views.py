@@ -34,7 +34,7 @@ def my(request):
                 sortedReports = {}
                 for idx, val in enumerate(reports):
                     try:
-                        rate = int(val.base_rate)
+                        rate = float(val.base_rate)
                         if val.view_name not in sortedReports.keys():
                             sortedReports[val.view_name] = []
                         sortedReports[val.view_name].append(val)
@@ -49,7 +49,7 @@ def my(request):
                     rateSumm = 0
                     for idx, val in enumerate(value):
                         try:
-                            rate = int(val.base_rate)
+                            rate = float(val.base_rate)
                             rateSumm = rate + rateSumm
                         except:
                              print("Not integer")
@@ -62,7 +62,8 @@ def my(request):
                         print(rateSumm / len(sortedReports.keys()))
                         reportWithAverageRate = ReportsWithAverageRate()
                         reportWithAverageRate.reports = value
-                        reportWithAverageRate.averageRate = rateSumm / len(value)
+                        average = rateSumm / len(value)
+                        reportWithAverageRate.averageRate = round(average, 1)
                         reportWithAverageRate.rateCount = len(value)
                         reportsWithAverageRate[key] = reportWithAverageRate
                         print(reportWithAverageRate.averageRate)
