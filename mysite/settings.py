@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    # 'djangobower',
+    # 'django_nvd3',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,18 @@ TEMPLATES = [
         },
     },
 ]
+
+# BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
+
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     'djangobower.finders.BowerFinder',
+# )
+#
+# BOWER_INSTALLED_APPS = (
+#     'django_nvd3',
+# )
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
