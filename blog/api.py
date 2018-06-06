@@ -59,8 +59,9 @@ def report(request):
 
                 with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
                     # decodedImage = img_data.decode('base64')
-                    decodedImage = decodestring(heatmap_base64)
-                    fh.write(decodedImage)
+                    # decodedImage = decodestring(heatmap_base64)
+                    # fh.write(decodedImage)
+                    fh.write(base64.decode(img_data))
 
 
                 for idx, val in enumerate(views_blocks):
