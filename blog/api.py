@@ -62,7 +62,7 @@ def report(request):
                     decodedImage =  base64.b64decode(img_data)
                     fh.write(decodedImage)
 
-    
+
 
                 for idx, val in enumerate(views_blocks):
                     newView = View.objects.create(report = newReport, type = val['type'], view_id = val['view_id'], coordinates_by_x = 0, coordinates_by_y = 12, message = val['message'], rate = val['rate'])
