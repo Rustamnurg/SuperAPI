@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^signUp/', views.signUp, name='signUp'),
     url(r'^logout/', views.logout, name='logout'),
     url(r'^enterAppName/', views.enterAppName, name='enterAppName'),
+    url(r'^test/', views.test, name='test'),
     # url('',(r'^images/(?P<path>.*)$', 'django.views.static.serve',
     #              {'document_root': "/images/"}),
     #           ),

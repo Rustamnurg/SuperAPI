@@ -52,6 +52,13 @@ def report(request):
 
                 newReport.save()
                 print(views_blocks)
+
+
+                for idx, val in enumerate(views_blocks):
+                    newView = View.objects.create(report = newReport, type = val['type'], view_id = val['view_id'], coordinates_by_x = 0, coordinates_by_y = 12, message = val['message'], rate = val['rate'])
+                    newView.save()
+
+
                 return render(request, 'api/post.html', {})
             else: return render(request, 'api/error.html', {})
 

@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 
-
 class User(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
@@ -37,7 +36,7 @@ class View(models.Model):
     coordinates_by_y = models.FloatField()
     message = models.CharField(max_length=200)
     rate = models.IntegerField()
-    #  owner
+
 
 
  # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
