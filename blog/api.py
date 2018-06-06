@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 import base64
 import uuid
 import os
+from base64 import decodestring
 
 @csrf_exempt
 @require_http_methods(["POST"])
@@ -57,8 +58,10 @@ def report(request):
                     os.makedirs("/home/superapi/SuperAPI/blog/images/")
 
                 with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
-                    decodedImage = img_data.decode('base64')
+                    # decodedImage = img_data.decode('base64')
+                    decodedImage = decodestring(img_data)
                     fh.write(decodedImage)
+
 
                 for idx, val in enumerate(views_blocks):
                     newView = View.objects.create(report = newReport, type = val['type'], view_id = val['view_id'], coordinates_by_x = 0, coordinates_by_y = 12, message = val['message'], rate = val['rate'])
