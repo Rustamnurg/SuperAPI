@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 import base64
 import uuid
-
+import os
 
 @csrf_exempt
 @require_http_methods(["POST"])
@@ -47,6 +47,10 @@ def report(request):
 
 
                 img_data = heatmap_base64
+
+                if not os.path.exists("blog/images/"):
+                    os.makedirs("blog/images/")
+
                 with open("blog/images/{0}.png".format(image_name), "wb") as fh:
                     fh.write(img_data.decode('base64'))
 
