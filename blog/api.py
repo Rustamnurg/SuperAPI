@@ -49,9 +49,9 @@ def report(request):
                 img_data = heatmap_base64
 
                 if not os.path.exists("blog/images/"):
-                    os.makedirs("blog/images/")
+                    os.makedirs("/home/superapi/SuperAPI/blog/images/")
 
-                with open("blog/images/{0}.png".format(image_name), "wb") as fh:
+                with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
                     fh.write(img_data.decode('base64'))
 
                 newReport.save()
