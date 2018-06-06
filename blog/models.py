@@ -39,22 +39,9 @@ class View(models.Model):
 
 
 
- # author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
- # heatmap_base64
-
-
-#
-#     def publish(self):
-#         self.published_date = timezone.now()
-#         self.save()
-#
-#     def __str__(self):
-#         return self.title
-#
-#
-
-
-
-
+class ReportsWithAverageRate():
+    reports = []
+    averageRate = int
+    rateCount = int
 
 
