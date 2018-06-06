@@ -13,6 +13,26 @@
 </ul>
 </div>
 
+
+<table>
+    <tr>
+    <th>Название контроллера </th>
+    <th> Средняя оценка</th>
+   </tr>
+{% for key, value in reportsWithAverageRate.iteritems %}
+   <tr>
+        <th> {{ key }} </th>
+        <td style='text-align:center;vertical-align:middle' > {{ value.averageRate}} ({{ value.rateCount }}) </td>
+   </tr>
+{% endfor %}
+</table>
+
+
+</body>
+</html>
+
+
+
 <div>
 {% for report in reports %}
 <ul>
@@ -28,6 +48,3 @@
 {% endfor %}
 </div>
 
-
-</body>
-</html>

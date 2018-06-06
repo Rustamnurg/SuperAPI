@@ -30,9 +30,49 @@ def my(request):
                 app = apps.first()
                 reports = Report.objects.filter(app = app)
                 template = loader.get_template('main/my.html')
+
+                sortedReports = {}
+                for idx, val in enumerate(reports):
+                    try:
+                        rate = float(val.base_rate)
+                        if val.view_name not in sortedReports.keys():
+                            sortedReports[val.view_name] = []
+                        sortedReports[val.view_name].append(val)
+                    except ValueError:
+                        print("Not integer")
+
+
+
+                reportsWithAverageRate = {}
+                for key, value in sortedReports.items():
+                    print(key)
+                    rateSumm = 0
+                    for idx, val in enumerate(value):
+                        try:
+                            rate = float(val.base_rate)
+                            rateSumm = rate + rateSumm
+                        except:
+                             print("Not integer")
+
+
+
+                    if len(value) > 0 :
+                        print(sortedReports.keys())
+                        print(rateSumm)
+                        print(rateSumm / len(sortedReports.keys()))
+                        reportWithAverageRate = ReportsWithAverageRate()
+                        reportWithAverageRate.reports = value
+                        average = rateSumm / len(value)
+                        reportWithAverageRate.averageRate = round(average, 1)
+                        reportWithAverageRate.rateCount = len(value)
+                        reportsWithAverageRate[key] = reportWithAverageRate
+                        print(reportWithAverageRate.averageRate)
+
+                print(len(reportsWithAverageRate.keys()))
                 context = {
                     'reports': reports,
-                    'app': app
+                    'app': app,
+                    'reportsWithAverageRate' : reportsWithAverageRate
                 }
                 return HttpResponse(template.render(context))
 
