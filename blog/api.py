@@ -59,7 +59,7 @@ def report(request):
 
                 with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
                     # decodedImage = img_data.decode('base64')
-                    decodedImage = decodestring(img_data)
+                    decodedImage = decodestring(heatmap_base64)
                     fh.write(decodedImage)
 
 
