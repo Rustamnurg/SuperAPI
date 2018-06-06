@@ -58,10 +58,10 @@ def report(request):
                     os.makedirs("/home/superapi/SuperAPI/blog/images/")
 
                 with open("/home/superapi/SuperAPI/blog/images/{0}.png".format(image_name), "wb") as fh:
-                    # decodedImage = img_data.decode('base64')
-                    # decodedImage = decodestring(heatmap_base64)
-                    # fh.write(decodedImage)
-                    fh.write(base64.decode(img_data))
+                    imageString = base64_image_str = img_data[img_data.find(",")+1:]
+                    decodedImage = img_data.decode('base64')
+                    fh.write(decodedImage)
+
 
 
                 for idx, val in enumerate(views_blocks):
